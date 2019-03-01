@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Dashboard>
+  <Title Text="dashboard1" />
+  <DataSources>
+    <SqlDataSource Name="Invoices" ComponentName="sqlDataSource1">
+      <Connection Name="nwindConnection" FromAppConfig="true" />
+      <Query Type="SelectQuery" Name="Invoices">
+        <Tables>
+          <Table Name="Invoices" />
+        </Tables>
+        <Columns>
+          <AllColumns Table="Invoices" />
+        </Columns>
+      </Query>
+      <ConnectionOptions CloseConnection="true" />
+    </SqlDataSource>
+  </DataSources>
+  <Items>
+    <Grid ComponentName="gridDashboardItem1" Name="Grid 1" DataSource="sqlDataSource1" DataMember="Invoices">
+      <DataItems>
+        <Dimension DataMember="City" DefaultId="DataItem0" />
+        <Measure DataMember="ExtendedPrice" DefaultId="DataItem1" />
+      </DataItems>
+      <GridColumns>
+        <GridDimensionColumn>
+          <Dimension DefaultId="DataItem0" />
+        </GridDimensionColumn>
+        <GridMeasureColumn>
+          <Measure DefaultId="DataItem1" />
+        </GridMeasureColumn>
+      </GridColumns>
+      <GridOptions />
+    </Grid>
+  </Items>
+  <LayoutTree>
+    <LayoutGroup>
+      <LayoutItem DashboardItem="gridDashboardItem1" />
+    </LayoutGroup>
+  </LayoutTree>
+</Dashboard>
